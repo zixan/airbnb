@@ -11,7 +11,7 @@ def main():
         r = requests.get(url.format(str(i)))
         status = r.status_code
         if status != 200:
-            raise 'Something went wrong...'
+            raise Exception('Something went wrong...')
         text = r.text
         lat_coords = html.fromstring(text).xpath('//div[@class="listing"]/@data-lat')
         long_coords = html.fromstring(text).xpath('//div[@class="listing"]/@data-lng')
